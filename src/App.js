@@ -43,7 +43,7 @@ function App() {
 
               {/* Menu open */}
             {menuOpen && (
-              <div className="md:hidden w-screen flex flex-col items-center py-4 gap-3 text-white font-light text-sm"
+              <div className="md:hidden w-screen flex flex-col items-center justify-center text-center py-4 gap-3 text-white font-light text-sm"
                   >
                 <p onClick={() => setMenuOpen(false)} >HOME</p>
                 <p onClick={() => setMenuOpen(false)}>ABOUT</p>
@@ -92,17 +92,66 @@ function App() {
                    className="absolute shadow-lg rounded-lg top-20 left-28 w-full h-full object-cover transform transition-transform duration-300 hover:scale-125"
               />
             </div>
-            <p className="text-xs md:text-sm w-96 mt-10 md:ml-10 md:pb-20">We craft architecture and interiors that embrace simplicity and natural beauty. With careful attention to materials and proportions, our spaces age gracefully, reflecting quiet elegance and timeless character.
-
-
-
+            <p className="text-xs md:text-base font-light w-96 mt-10 md:ml-10 md:pb-20 leading-normal md:leading-relaxed">We craft architecture and interiors that embrace simplicity and natural beauty. With careful attention to materials and proportions, our spaces age gracefully, reflecting quiet elegance and timeless character.
 We believe great design is collaborative. Through clear communication, transparent timelines, and careful budgeting, we make the process smooth and enjoyable — delivering spaces that exceed expectations without surprises.</p>
           </div>
       </div>
 
-      <div className="h-screen bg-text bg-opacity-5">content</div>
+      <div className="h-screen px-4 md:py-20 md:px-10 pb-10 bg-text bg-opacity-5 text-text flex flex-col justify-center items-center md:grid grid-cols-2 md:gap-8">
+        
+        <div className="h-full flex flex-col justify-center md:justify-start items-start gap-6 md:gap-8 md:pt-10">
+          <h1 className="text-3xl md:text-5xl font-normal">From Concept to Concrete</h1>
+            <div className="text-text flex flex-col gap-2">
+              <p className="text-xs md:text-base font-light leading-normal md:leading-relaxed">Merging creativity with functionality, shaping homes and interiors that reflect personality, craft, and a forward-looking approach to design.
+                <br></br>
+                 Every project is a journey — from the first sketch to the finished space. We bring clarity, creativity, and precision to deliver architecture and interiors that stand out.
+                </p>
+              <p className="text-xs md:text-base font-light"><strong>LINEAR</strong> Team</p>
+            </div>
+          </div>
 
-      <div>products</div>
+        <div className="w-full h-full grid grid-cols-2 md:justify-center gap-4 md:gap-8 text-text">
+          <div className="flex flex-col h-full items-center justify-center">
+              <img src="/img/Minimalist Interior with Light and Shadow.png"
+                   className="h-full w-full mb-2 md:mb-4 rounded-lg shadow-md transform duration-300 hover:scale-105"/>
+            <div className="">
+              <h2 className="text-lg font-medium">Residential & Interiors</h2>
+              <p className="text-xs md:text-sm font-light leading-normal">Spaces that carry life, and quiet elegance through material and light, leaving a lasting impression without saying a word.</p>
+            </div>
+          </div>
+          
+          <div className="flex flex-col h-full items-start justify-start">
+              <img src="/img/Minimalist Interior with Geometric Light.png"
+                  className="h-full w-full mb-2 md:mb-4 rounded-lg shadow-md transform duration-300 hover:scale-105"
+                />
+            <div>
+              <h2 className="text-lg font-medium">Commercial & Experiential</h2>
+              <p className="text-xs md:text-sm font-light leading-normal">Spaces that inspire and endure, turning offices and public areas into immersive experiences where design meets purpose.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="services h-screen px-8 md:px-10 py-20 md:py-28 bg-text text-white text-opacity-80 bg-opacity-90 grid grid-cols-2 md:grid-cols-3 gap-10 md:gap-16 ">
+            <div className="h-auto w-auto p-0">
+              <h1 className="text-3xl font-normal md:text-5xl">Defined By Craft. Driven By Excellence</h1>
+            </div>
+            <div className="h-auto w-auto border-2 border-opacity-60 rounded-md">
+              <p></p>
+            </div>
+            <div className="h-auto w-auto border-2 border-opacity-60 rounded-md">
+              <p></p>
+            </div>
+            <div className="h-auto w-auto border-2 border-opacity-60 rounded-md">
+              <p></p>
+            </div>
+            <div className="h-auto w-auto border-2 border-opacity-60 rounded-md">
+              <p></p>
+            </div>
+            <div className="h-auto w-auto border-2 border-opacity-60 rounded-md">
+              <p></p>
+            </div>
+      </div>
 
       <footer></footer>
 
