@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-import services from "./services";
+import Services from "./services";
 
 
 function App() {
       const [menuOpen, setMenuOpen] = useState(false);
 
   return (
+    <BrowserRouter>
+    <Switch>
+      <Route exact path="/">
     <div id="home">
       <div style= {{
               backgroundImage: "url('/img/Modern Architecture in Black and White.png')",
@@ -40,8 +43,8 @@ function App() {
             <div className="hidden md:flex items-center justify-center gap-10 md:gap-20 text-white text-xs md:text-sm font-light">
               <a href="#home" onClick={() => setMenuOpen(false)}>HOME</a>
               <a href="#about" onClick={() => setMenuOpen(false)}>ABOUT</a>
-              <a>SERVICES</a>
-              <a>CONTACT</a>
+              <Link to="/services"><a>SERVICES</a></Link>
+              <Link to="/services#contact"><a>CONTACT</a></Link>
             </div>
 
               {/* Menu open */}
@@ -50,8 +53,8 @@ function App() {
                   >
                 <a href="#home" onClick={() => setMenuOpen(false)} >HOME</a>
                 <a href="#about" onClick={() => setMenuOpen(false)}>ABOUT</a>
-                <a onClick={() => setMenuOpen(false)}>SERVICES</a>
-                <a onClick={() => setMenuOpen(false)}>CONTACT</a>
+                <Link to="/services"><a onClick={() => setMenuOpen(false)}>SERVICES</a></Link>
+                <Link to="/services#contact"><a onClick={() => setMenuOpen(false)}>CONTACT</a></Link>
               </div>
             )}
         </header>
@@ -59,8 +62,9 @@ function App() {
         <div className="h-3/4 flex-1 flex flex-col justify-center items-center font-sans">
             <h1 className="text-white font-semibold text-2xl md:text-5xl text-center pb-1 md:pb-4">ARCHITECTURE WITH INTENT</h1>
             <p className="text-white font-light text-sm italic text-center">Modern spaces rooted in simplicity, functionality and timeless elegence.</p>
-            <button className="bg-white bg-opacity-90 p-2 rounded-full w-36 md:w-48 md:h-14 mt-10 hover:bg-text duration-300 hover:text-white">EXPLORE</button>
+            <Link to="/services"><button className="bg-white bg-opacity-90 p-2 rounded-full w-36 md:w-48 md:h-14 mt-10 hover:bg-text duration-300 hover:text-white">EXPLORE</button></Link>
         </div>
+        
       </div>
         
       <div id="about" className="about h-screen max-w-full flex flex-col justify-center items-center md:pt-10 text-text">
@@ -114,7 +118,7 @@ We believe great design is collaborative. Through clear communication, transpare
           </div>
 
         <div className="w-full h-full grid grid-cols-2 md:justify-center gap-4 md:gap-8 text-text">
-          <div className="flex flex-col h-full items-center justify-center">
+          <Link to="/services"><div className="flex flex-col h-full items-center justify-center">
               <img src="/img/Minimalist Interior with Light and Shadow.png"
                    className="h-full w-full mb-2 md:mb-4 rounded-lg shadow-md transform duration-300 hover:scale-105"/>
             <div className="">
@@ -122,8 +126,9 @@ We believe great design is collaborative. Through clear communication, transpare
               <p className="text-xs md:text-sm font-light leading-normal">Spaces that carry life, and quiet elegance through material and light, leaving a lasting impression without saying a word.</p>
             </div>
           </div>
-          
-          <div className="flex flex-col h-full items-start justify-start">
+          </Link>
+
+          <Link to="/services"><div className="flex flex-col h-full items-start justify-start">
               <img src="/img/Minimalist Interior with Geometric Light.png"
                   className="h-full w-full mb-2 md:mb-4 rounded-lg shadow-md transform duration-300 hover:scale-105"
                 />
@@ -132,6 +137,7 @@ We believe great design is collaborative. Through clear communication, transpare
               <p className="text-xs md:text-sm font-light leading-normal">Spaces that inspire and endure, turning offices and public areas into immersive experiences where design meets purpose.</p>
             </div>
           </div>
+          </Link>
         </div>
       </div>
 
@@ -178,8 +184,8 @@ We believe great design is collaborative. Through clear communication, transpare
         </div>
        
         {/*footer section 2: contact + service + input form*/}  
-          <div className="w-1/2 md:flex-col md:gap-20 md:px-20">
-            <div className="md:flex md:gap-10 pb-4">
+          <div className="md:w-1/2 md:flex-col md:gap-20 md:px-20">
+            <div className="w-full flex gap-20 md:gap-10 pb-4">
         
         <div className="text-white text-opacity-80 service flex flex-col gap-1 pb-2">
           <h4 className="text-sm font-normal">SERVICES</h4>
@@ -214,6 +220,14 @@ We believe great design is collaborative. Through clear communication, transpare
 
 
     </div>
+    </Route>
+
+    <Route path="/services">
+      <Services />
+    </Route>
+
+      </Switch>
+    </BrowserRouter>
   );
 }
 
