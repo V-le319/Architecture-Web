@@ -1,12 +1,24 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import { useLocation } from "react-router-dom";
+import ScrollToTopButton from "./ScrollToTopButton";
 
 
 export default function Services() { 
   const [menuOpen, setMenuOpen] = useState(false);
   const [index, setIndex] = useState(0);
   const [activeImage, setActiveImage] = useState(null);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
 
     useEffect(() => {
   if (activeImage) {
@@ -98,7 +110,7 @@ useEffect(() => {
           {menuOpen && ( <div className="md:hidden w-screen flex flex-col items-center gap-3 text-white font-light text-sm"> 
             <Link to="/" onClick={() => setMenuOpen(false)}>HOME</Link> 
             <Link to="/#about" onClick={() => setMenuOpen(false)}>ABOUT</Link> 
-            <Link to="/services" onClick={() => setMenuOpen(false)}>SERVICES</Link> 
+            <Link to="#services" onClick={() => setMenuOpen(false)}>SERVICES</Link> 
             <Link to="/services#contact" onClick={() => setMenuOpen(false)}>CONTACT</Link> 
           </div>
          )}  
@@ -109,7 +121,7 @@ useEffect(() => {
             </div> 
             </div> 
             
-            <div className="services-content min-h-screen max-w-screen flex flex-col md:py-10 my-10 "> 
+            <div id="services" className="services-content min-h-screen max-w-screen flex flex-col md:py-10 my-10 "> 
               <div className="h-full">
               <div className="personal md:h-screen p-10 md:px-20 py-16 md:flex-row gap-10 md:gap-20 flex flex-col">
                 <img src="/img/Minimalist Interior with Geometric Light.png"
@@ -357,17 +369,9 @@ Natural materials, soft shadows, and honest forms come together to create interi
             </div>
       </footer>
               
-
-                <footer></footer>
-
-
-
-
-
-
-
-               
-            </div> 
+          <ScrollToTopButton />
+          
+          </div> 
             ); 
           }
 

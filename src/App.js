@@ -1,10 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import Services from "./services";
+import { useLocation } from "react-router-dom";
+import ScrollToTopButton from "./ScrollToTopButton";
+
 
 
 function App() {
       const [menuOpen, setMenuOpen] = useState(false);
+      const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        // Use setTimeout to ensure the element is rendered
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: "smooth" });
+        }, 50);
+      }
+    }
+  }, [location]);
 
   return (
     <BrowserRouter>
@@ -53,7 +70,7 @@ function App() {
                   >
                 <a href="#home" onClick={() => setMenuOpen(false)} >HOME</a>
                 <a href="#about" onClick={() => setMenuOpen(false)}>ABOUT</a>
-                <Link to="/services"><a onClick={() => setMenuOpen(false)}>SERVICES</a></Link>
+                <Link to="/services#services"><a onClick={() => setMenuOpen(false)}>SERVICES</a></Link>
                 <Link to="/services#contact"><a onClick={() => setMenuOpen(false)}>CONTACT</a></Link>
               </div>
             )}
@@ -218,7 +235,7 @@ We believe great design is collaborative. Through clear communication, transpare
             </div>
       </footer>
 
-
+              <ScrollToTopButton />
     </div>
     </Route>
 
