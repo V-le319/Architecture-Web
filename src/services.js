@@ -3,13 +3,65 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import ScrollToTopButton from "./ScrollToTopButton";
 
+function useImageSlider(images) {
+  const [index, setIndex] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(
+    window.innerWidth < 768 ? 3 : 5
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setVisibleCount(window.innerWidth < 768 ? 3 : 5);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const next = () => {
+    setIndex((prev) =>
+      prev + visibleCount >= images.length ? 0 : prev + 1
+    );
+  };
+
+  const prev = () => {
+    setIndex((prev) =>
+      prev === 0 ? images.length - visibleCount : prev - 1
+    );
+  };
+
+  return { index, visibleCount, next, prev };
+}
+
 
 export default function Services() { 
   const [menuOpen, setMenuOpen] = useState(false);
-  const [index, setIndex] = useState(0);
+  
   const [activeImage, setActiveImage] = useState(null);
 
   const location = useLocation();
+
+  const personalImages = [
+  "/img/Minimalist Interior with Light and Shadow.png",
+  "/img/Minimalist Interior with Modern Furniture.png",
+  "/img/Minimalist Interior with Abstract Art.png",
+  "/img/Minimalist Interior with Monochromatic Tones.png",
+  "/img/Minimalist Interior with Geometric Light.png",
+  "/img/Elegant Interior Decor with Art Focal Point.png",
+  "/img/Serene Modern Interior.png",
+];
+
+const commercialImages = [
+  "/img/Modern Architectural Structure with Geometric Design.png",
+  "/img/Modern Architectural Interior.png",
+  "/img/Modern Minimalist Dining Area.png",
+  "/img/Modern Architectural Structure.png",
+  "/img/Modern Architectural Interior with Natural Motifs.png",
+  "/img/Sunlit Arcadia_ A Modern Symphony in Concrete and Light.png",
+  "/img/Serene Minimalism_ Concrete Interior with Nature View.png"
+];
+const personalSlider = useImageSlider(personalImages);
+const commercialSlider = useImageSlider(commercialImages);
+
 
   useEffect(() => {
     if (location.hash) {
@@ -38,55 +90,50 @@ export default function Services() {
   return () => window.removeEventListener("keydown", handleEsc);
 }, []);
 
+//Form submit logic
+          const [formData, setFormData] = useState({
+            name: "",
+            phone: "",
+            email: "",
+            message: "",
+          });
+      
+       const handleChange = (e) => {
+        const {name, value} = e.target;
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+          })
+        )
+       };
+       const handleSubmit = (e) => {
+          e.prevenDefault(); //prevent page reloads
+          console.log("Form submitted:", formData);
+          alert("Form submitted successfully!");
+       };
 
-
-    const images = [
-      "/img/Minimalist Interior with Light and Shadow.png",
-      "/img/Minimalist Interior with Modern Furniture.png",
-      "/img/Minimalist Interior with Abstract Art.png",
-      "/img/Minimalist Interior with Monochromatic Tones.png",
-      "/img/Minimalist Interior with Geometric Light.png",
-      "/img/Minimalist Interior with Geometric Light.png",
-    ];
-
-    const [visibleCount, setVisibleCount] = useState(
-  window.innerWidth < 768 ? 3 : 5
-);
-
-useEffect(() => {
-  const handleResize = () => {
-    setVisibleCount(window.innerWidth < 768 ? 3 : 5);
-  };
-
-  window.addEventListener("resize", handleResize);
-  return () => window.removeEventListener("resize", handleResize);
-}, []);
-
-    
-
-    const next = () => {
-        setIndex((prev) =>
-        prev + visibleCount >= images.length ? 0 : prev + 1
-        );
-      };
-
-    const prev = () => {
-        setIndex((prev) =>
-        prev === 0 ? images.length - visibleCount : prev - 1
-        );
-      };
+       const [footerEmail, setFooterEmail] = useState("");
+       const handleFooterSubmit = () => {
+          if(!footerEmail) {
+            alert("Please enter your email!");
+            return
+          };
+          console.log("Email submitted:", footerEmail);
+          alert("Thanks for subscribing!");
+          setFooterEmail("");
+       };
 
 
    return ( 
-   <div> 
-   <div 
-   style={{ backgroundImage: "url('/img/Architectural Display Photo.png')", 
-            backgroundSize: "cover", 
-            backgroundPosition: "center",
-           }} 
-           className="hero h-screen max-w-full flex flex-col items-center" > 
+   <div className="main"> 
+    <div 
+          style={{ backgroundImage: "url('/img/Architectural Display Photo.png')", 
+                   backgroundSize: "cover", 
+                    backgroundPosition: "center",
+                }} 
+          className="hero h-screen max-w-full flex flex-col items-center" > 
     
-      <header className="md:h-1/4 bg-black bg-opacity-60 md:bg-transparent w-full px-8 md:px-20"> <div className="w-full flex md:justify-center justify-between py-1 pt-4 md:pt-6"> 
+      <header className="md:h-1/5 bg-black bg-opacity-60 w-full px-8 md:px-20"> <div className="w-full flex md:justify-center justify-between py-1 pt-4 md:pt-6"> 
         <Link to="/"><div className="flex items-end"> 
           <img src="/img/transparent-Photoroom.png" 
                 className="h-10 md:h-16" /> 
@@ -102,10 +149,10 @@ useEffect(() => {
         <div className=" h-0.5 mb-4 w-full bg-white"></div> 
 
         <nav className="hidden md:flex items-center justify-center gap-10 md:gap-20 text-white text-xs md:text-sm font-light"> 
-          <Link to="/" className=" hover:text-text duration-300">HOME</Link> 
-          <Link to="/#about" className=" hover:text-text duration-300">ABOUT</Link> 
-          <Link to="/services" className=" hover:text-text duration-300">SERVICES</Link> 
-          <Link to="/services#contact" className=" hover:text-text duration-300">CONTACT</Link> </nav> 
+          <Link to="/" className=" hover:text-black duration-300">HOME</Link> 
+          <Link to="/#about" className=" hover:text-black duration-300">ABOUT</Link> 
+          <Link to="/services" className=" hover:text-black duration-300">SERVICES</Link> 
+          <Link to="/services#contact" className=" hover:text-black duration-300">CONTACT</Link> </nav> 
           
           {menuOpen && ( <div className="md:hidden w-screen flex flex-col items-center gap-3 text-white font-light text-sm"> 
             <Link to="/" onClick={() => setMenuOpen(false)}>HOME</Link> 
@@ -115,15 +162,15 @@ useEffect(() => {
           </div>
          )}  
           </header> 
-          
-          <div> 
-            <p></p> 
-            </div> 
+          <div className="h-full flex justify-center items-center">
+            <h1 className="text-xl md:text-4xl font-bold shadow-sm md:font-normal text-white">“Where form, function, and feeling meet.”</h1>
+            </div>
+
             </div> 
             
             <div id="services" className="services-content min-h-screen max-w-screen flex flex-col md:py-10 my-10 "> 
               <div className="h-full">
-              <div className="personal md:h-screen p-10 md:px-20 py-16 md:flex-row gap-10 md:gap-20 flex flex-col">
+              <div id="personal" className="personal md:h-screen p-10 md:px-20 py-16 md:flex-row gap-10 md:gap-20 flex flex-col">
                 <img src="/img/Minimalist Interior with Geometric Light.png"
                       className="w-1/2 h-72 md:h-full rounded-sm"/> 
                   <div className="md:w-1/2 flex flex-col justify-center items-start gap-4 md:gap-10">
@@ -134,11 +181,11 @@ Natural materials, soft shadows, and honest forms come together to create interi
                   </div>
                 </div>
                 
-                <div className="roll-collection py-2 md:py-4 h-32 md:h-48 w-full md:my-8 bg-text bg-opacity-20 flex flex-row gap-4 justify-center items-center">
+                <div className="roll-collection h-32 py-2 md:py-4 md:h-48 w-full md:my-8 bg-text bg-opacity-20 flex justify-center items-center">
                   
-                  <div className="w-full h-full flex items-center justify-center">
-                  <button className="previous relative group w-10 h-10 flex items-center justify-center"
-                          onClick={prev}>
+                    <div className="w-12 flex-none pl-4 flex items-center justify-center">
+                  <button className="previous relative group w-10 h-10 justify-center"
+                          onClick={personalSlider.prev}>
                     <img src="/img/back-black.png"
                           className="absolute w-6 h-6 inset-0 transition-opacity duration-300 group-hover:opacity-0"
                         />
@@ -148,31 +195,29 @@ Natural materials, soft shadows, and honest forms come together to create interi
                         </button>
                         </div>
                     
-                       <div className="flex-1 flex justify-center items-center">
-                        <div className=" flex h-full justify-center gap-4 md:gap-16 overflow">
-                            {images
-                              .slice(index, index + visibleCount)
+                       <div className="flex-1 h-full py-2 w-full flex justify-center items-center">
+                        <div className=" flex h-full w-full justify-center gap-4 md:gap-16 overflow">
+                            {personalImages
+                              .slice(
+                              personalSlider.index,
+                              personalSlider.index + personalSlider.visibleCount
+                            )
                               .map((src, i) => (
-                                 <div
-                                    key={i}
-                                      className="w-24 h-24 md:w-32 md:h-32 rounded-5 flex items-center justify-center duration-300 transform hover:scale-110"
-                                    >
-                                  <img
+                                    <img
+                                      key={i}
                                       src={src}
-                                      onClick={() => setActiveImage(src)}
-                                      className="w-full h-full cursor-pointer object-cover transition-transform duration-300 hover:scale-150"
-                                        alt=""
-                                        />
-                          </div>
-                             ))}
+                                      className="w-28 md:w-48 flex-none object-cover rounded-sm cursor-pointer transform hover:scale-150 duration-300"
+                                      onClick={() => setActiveImage(src)} // ✅ KEEP
+                                      />
+                                ))}
                         </div>
                          </div>
                         
 
                     
-                    <div className="w-full h-full flex items-center justify-center">
-                  <button className="previous relative group w-10 h-10 flex items-center justify-center"
-                          onClick={next}>
+                    <div className="w-12 flex-none flex items-center justify-center">
+                  <button className="next relative group w-10 h-10 flex items-center justify-center"
+                          onClick={personalSlider.next}>
                     <img src="/img/next black.png"
                           className="absolute w-6 h-6 inset-0 transition-opacity duration-300 group-hover:opacity-0"
                         />
@@ -185,27 +230,60 @@ Natural materials, soft shadows, and honest forms come together to create interi
                 </div>
 
               <div className="h-full">
-              <div className="commercial md:h-screen p-10 md:px-20 py-16 md:flex-row-reverse gap-10 md:gap-20 flex flex-col">
+              <div id="commercial" className="commercial md:h-screen p-10 md:px-20 py-16 md:flex-row-reverse gap-10 md:gap-20 flex flex-col">
                 <img src="/img/Architectural Silhouette.png"
                       className="w-1/2 h-72 md:h-full rounded-sm self-end md:self-auto"/> 
                   <div className="md:w-1/2 flex flex-col justify-center items-start gap-4 md:gap-10">
                     <h1 className="text-3xl md:text-6xl text-text font-normal">Commercial Projects</h1>
-                    <p className="text-text font-light text-xs md:text-lg leading-normal md:leading-relaxed">A quiet collection shaped by light, texture, and restraint.<br></br>
-These interiors embrace imperfection and natural materials, creating spaces that feel calm, lived-in, and deeply personal — where simplicity becomes comfort.<br></br>
-Natural materials, soft shadows, and honest forms come together to create interiors that feel grounded and timeless.</p>
+                    <p className="text-text font-light text-xs md:text-lg leading-normal md:leading-relaxed">Thoughtfully designed workplaces, retail, and mixed-use spaces that balance performance and aesthetics. Each project responds to functional needs while expressing a clear architectural identity. Our designs are created to deliver long-term value and adaptability.</p>
                   </div>
                 </div>
-                <div className="roll-collection h-32 md:h-48 w-full flex flex-row md:my-8 bg-text bg-opacity-20">
-                  <img src=""/>
-                    <div className="flex flex-row gap-2 md:gap-10">
-                    <img/> 
-                     <img/>
-                      <img/>
-                       <img/>
-                        <img/>
-                    </div>
-                  <img src="" alt="forward-btn"/>
-                </div>
+                <div className="roll-collection h-32 py-2 md:py-4 md:h-48 w-full md:my-8 bg-text bg-opacity-20 flex flex-row gap-4 justify-center items-center">
+                  
+                  <div className="w-full h-full pl-4 flex items-center justify-center">
+                  <button className="previous relative group w-10 h-10 flex items-center justify-center"
+                          onClick={commercialSlider.prev}>
+                    <img src="/img/back-black.png"
+                          className="absolute w-6 h-6 inset-0 transition-opacity duration-300 group-hover:opacity-0"
+                        />
+                    <img src="/img/back=white.png"
+                        className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+                          />
+                        </button>
+                        </div>
+                    
+                       <div className="flex-1 flex h-full w-full py-2 justify-center items-center">
+                        <div className=" flex h-full justify-center gap-4 md:gap-16 overflow">
+                            {commercialImages
+                                .slice(
+                                commercialSlider.index,
+                                commercialSlider.index + commercialSlider.visibleCount
+                                    )
+                                  .map((src, i) => (
+                                  <img
+                                      key={i}
+                                      src={src}
+                                      className="w-28 md:w-48 flex-none object-cover rounded-sm cursor-pointer transform hover:scale-150 duration-300"
+                                      onClick={() => setActiveImage(src)} // ✅ SAME modal
+                                              />
+                                       ))}
+                        </div>
+                         </div>
+                        
+
+                    
+                    <div className="w-full h-full flex items-center justify-center">
+                  <button className="previous relative group w-10 h-10 flex items-center justify-center"
+                          onClick={commercialSlider.next}>
+                    <img src="/img/next black.png"
+                          className="absolute w-6 h-6 inset-0 transition-opacity duration-300 group-hover:opacity-0"
+                        />
+                    <img src="/img/next-white.png"
+                        className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+                          />
+                        </button>
+                        </div>
+                  </div>
                 </div>
             
             </div> 
@@ -239,22 +317,42 @@ Natural materials, soft shadows, and honest forms come together to create interi
 )}
 
            
-                <form id="contact" className="request-form px-10 py-10 h-screen justify-center items-center gap-6 flex flex-col bg-text bg-opacity-90 text-white">
+                <form id="contact" 
+                      onSubmit={handleSubmit}
+                      className="request-form px-10 py-10 h-screen justify-center items-center gap-6 flex flex-col bg-text bg-opacity-90 text-white">
                     <h1 className="self-center text-3xl md:text-6xl md:mb-10">Request Form</h1>
                   
                  <div className="form flex flex-col py-8 md:py-10 justify-center items-start md:gap-10 gap-6"> 
                   <div className="personal-infos flex flex-col justify-center items-start md:flex-row md:gap-10 gap-6">
                     <div className="flex gap-4">
                       <label>Name:</label>
-                      <input className="rounded-md w-60 text-xs px-2 text-text" placeholder="Your Name" type="text"/>
+                      <input 
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          className="rounded-md w-60 text-xs px-2 text-black" 
+                          placeholder="Your Name" 
+                          type="text"/>
                         </div>
                       <div className="flex gap-4">
                         <label>Phone:</label>
-                        <input className="rounded-md w-60 text-xs px-2  text-text" placeholder="Phone Number" type="number"/>
+                        <input 
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            className="rounded-md w-60 text-xs px-2  text-black" 
+                            placeholder="Phone Number" 
+                            type="number"/>
                           </div>
                         <div className="flex gap-4">
                           <label>Email:</label>
-                          <input className="rounded-md w-60 text-xs px-2  text-text" placeholder="Your Email" type="email"/>
+                          <input 
+                              name="email"
+                              value={formData.email}
+                              onChange={handleChange}
+                              className="rounded-md w-60 text-xs px-2  text-black" 
+                              placeholder="Your Email" 
+                              type="email"/>
                             </div>
                     </div>
 
@@ -278,7 +376,7 @@ Natural materials, soft shadows, and honest forms come together to create interi
                 
                       <div className="property-type flex gap-7 md:gap-16">
                         <label>Property Type:</label>
-                          <select className="block rounded-md px-2 text-text text-xs md:text-sm ">
+                          <select className="block rounded-md px-2 text-black text-xs md:text-sm ">
                             <option value="">Select a property type</option>
                             <option value="house">Residential (House / Apartment / Villa)</option>
                             <option value="apartment">Commercial (Office / Retail / Hospitality)</option>
@@ -288,7 +386,7 @@ Natural materials, soft shadows, and honest forms come together to create interi
 
                       <div className="budget flex gap-20 md:gap-28">
                           <label>Budget:</label>
-                            <select className="block rounded-md px-2 text-text text-xs md:text-sm">
+                            <select className="block rounded-md px-2 text-black text-xs md:text-sm">
                                 <option value="">Select your budget</option>
                                 <option value="lt-50000">&lt; 50,000$</option>
                                 <option value="50000-100000">50,000$ - 100,000$</option>
@@ -298,7 +396,7 @@ Natural materials, soft shadows, and honest forms come together to create interi
                       
                         <div className="timeline flex gap-20 md:gap-28">
                             <label>Timeline:</label>
-                              <select className="block rounded-md px-2 text-text text-xs md:text-sm">
+                              <select className="block rounded-md px-2 text-black text-xs md:text-sm">
                                 <option value="">Select timeline</option>
                                 <option value="immediate">Immediate</option>
                                 <option value="1-3months">1-3 months</option>
@@ -308,11 +406,18 @@ Natural materials, soft shadows, and honest forms come together to create interi
 
                          <div className="timeline  flex gap-4 md:gap-24">
                             <label>Message:</label>
-                              <textarea className="rounded-md w-72 h-auto  md:w-96 p-2 text-xs md:text-sm  text-text" placeholder="Your message here..."/>
+                              <textarea 
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    className="rounded-md w-72 h-auto  md:w-96 p-2 text-xs md:text-sm  text-black" 
+                                    placeholder="Your message here..."/>
                           </div>      
                 </div>
 
-                        <button className="h-12  md:h-14 md:text-2xl bg-text hover:bg-white hover:shadow-md duration-300 hover:text-text border-2 text-center md:px-20 border-white px-8 rounded-xl text-xl">
+                        <button 
+                            type="submit"
+                            className="h-12  md:h-14 md:text-2xl bg-text hover:bg-white hover:shadow-md duration-300 hover:text-text border-2 text-center md:px-20 border-white px-8 rounded-xl text-xl">
                           Submit
                         </button>
                 
@@ -360,10 +465,14 @@ Natural materials, soft shadows, and honest forms come together to create interi
         </div>
                 <div className="submit-form w-full flex gap-4">
                     <input 
+                      value={footerEmail}
+                      onChange={(e) => setFooterEmail(e.target.value)}
                       type="text"
                       placeholder="Your email"
                       className="w-8/12 h-8 md:h-11 text-xs md:text-sm bg-white bg-opacity-90 rounded-sm md:rounded-md px-2"></input>
-                    <button className="w-4/12 h-8 md:h-11 text-white md:text-lg font-light bg-black border-2 border-white rounded-sm md:rounded-md hover:bg-text duration-300">Submit</button>
+                    <button 
+                        onClick={handleFooterSubmit}
+                        className="w-4/12 h-8 md:h-11 text-white md:text-lg font-light bg-black border-2 border-white rounded-sm md:rounded-md hover:bg-text duration-300">Submit</button>
                 </div>
 
             </div>

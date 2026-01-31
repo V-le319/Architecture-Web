@@ -135,7 +135,7 @@ We believe great design is collaborative. Through clear communication, transpare
           </div>
 
         <div className="w-full h-full grid grid-cols-2 md:justify-center gap-4 md:gap-8 text-text">
-          <Link to="/services"><div className="flex flex-col h-full items-center justify-center">
+          <Link to="/services#personal"><div className="flex flex-col h-full items-center justify-center">
               <img src="/img/Minimalist Interior with Light and Shadow.png"
                    className="h-full w-full mb-2 md:mb-4 rounded-lg shadow-md transform duration-300 hover:scale-105"/>
             <div className="">
@@ -145,7 +145,7 @@ We believe great design is collaborative. Through clear communication, transpare
           </div>
           </Link>
 
-          <Link to="/services"><div className="flex flex-col h-full items-start justify-start">
+          <Link to="/services#commercial"><div className="flex flex-col h-full items-start justify-start">
               <img src="/img/Minimalist Interior with Geometric Light.png"
                   className="h-full w-full mb-2 md:mb-4 rounded-lg shadow-md transform duration-300 hover:scale-105"
                 />

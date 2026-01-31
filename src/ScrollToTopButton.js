@@ -33,7 +33,9 @@ export default function ScrollToTopButton() {
             right-5 
             bottom-10 
             w-12 
-            h-12 
+            md:w-16
+            h-12
+            md:h-16 
             rounded-full 
             border-2 
              border-text 
@@ -50,7 +52,7 @@ export default function ScrollToTopButton() {
             active:shadow-inner
           "
         >
-          <img src="/img/up-btn.png" alt="Scroll to top" className="w-6 h-6" />
+          <img src="/img/up-btn.png" alt="Scroll to top" className="w-6 md:w-10 h-6 md:h-10" />
         </button>
       )}
     </>
