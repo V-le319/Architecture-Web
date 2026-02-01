@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import ScrollToTopButton from "./ScrollToTopButton";
+import emailjs from "@emailjs/browser";
+
 
 function useImageSlider(images) {
   const [index, setIndex] = useState(0);
@@ -96,18 +98,64 @@ const commercialSlider = useImageSlider(commercialImages);
             phone: "",
             email: "",
             message: "",
+            projectTypes: [], // for checkboxes
+            propertyType: "",
+            budget: "",
+            timeline: "",
           });
       
+          //handle change for checkbox and dropdown
        const handleChange = (e) => {
-        const {name, value} = e.target;
-        setFormData((prev) => ({
-            ...prev,
-            [name]: value,
-          })
-        )
-       };
+        const {name, value, type, checked} = e.target;
+        if (type === "checkbox") {
+    setFormData((prev) => {
+      const newProjectTypes = checked
+        ? [...prev.projectTypes, value]
+        : prev.projectTypes.filter((v) => v !== value);
+      return { ...prev, projectTypes: newProjectTypes };
+    });
+  } else {
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  }
+};
        const handleSubmit = (e) => {
-          e.prevenDefault(); //prevent page reloads
+          e.preventDefault(); //prevent page reloads
+
+          emailjs.send(
+  process.env.REACT_APP_EMAILJS_SERVICE_ID,
+  process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+  {
+    name: formData.name,
+    email: formData.email,
+    phone: formData.phone,
+    projectTypes: formData.projectTypes.join(", "), // join array into string
+    propertyType: formData.propertyType,
+    budget: formData.budget,
+    timeline: formData.timeline,
+    message: formData.message,
+  },
+  process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+)
+.then(
+  () => {
+    alert("Message sent successfully!");
+    setFormData({
+      name: "",
+      phone: "",
+      email: "",
+      projectTypes: [],
+      propertyType: "",
+      budget: "",
+      timeline: "",
+      message: "",
+    });
+  },
+  (error) => {
+    console.error("EmailJS error:", error);
+    alert("Failed to send message.");
+  }
+);
+
           console.log("Form submitted:", formData);
           alert("Form submitted successfully!");
        };
@@ -118,10 +166,25 @@ const commercialSlider = useImageSlider(commercialImages);
             alert("Please enter your email!");
             return
           };
-          console.log("Email submitted:", footerEmail);
-          alert("Thanks for subscribing!");
-          setFooterEmail("");
-       };
+          emailjs.send(
+    process.env.REACT_APP_EMAILJS_SERVICE_ID,
+    process.env.REACT_APP_EMAILJS_TEMPLATE_ID, // optional - can use a separate template for subscriptions
+    {
+      email: footerEmail,
+    },
+    process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+  )
+  .then(
+    () => {
+      alert("Thanks for subscribing!");
+      setFooterEmail("");
+    },
+    (error) => {
+      console.error("EmailJS error:", error);
+      alert("Failed to subscribe. Try again.");
+    }
+  );
+};
 
 
    return ( 
@@ -360,15 +423,29 @@ Natural materials, soft shadows, and honest forms come together to create interi
                       <p>Project Type:</p>
                         <div className="flex flex-col justify-items-start md:flex-row gap-4">
                           <div className="flex gap-2 items-center">
-                            <input type="checkbox" className="h-4 w-4"/>
+                            <input type="checkbox" 
+                                    name="projectTypes"
+                                    value="Architecture"
+                                    onChange={handleChange}
+                                    className="h-4 w-4"/>
                             <label>Architecture</label>
                               </div>
                             <div className="flex gap-2 items-center">
-                                <input type="checkbox" className="h-4 w-4"/>
+                                <input 
+                                      type="checkbox"
+                                      name="projectTypes"
+                                      value="Interior"
+                                      onChange={handleChange} 
+                                      className="h-4 w-4"/>
                                 <label>Interior</label>
                                   </div>
                               <div className="flex gap-2 items-center">
-                                  <input type="checkbox" className="h-4 w-4"/>
+                                  <input 
+                                        type="checkbox"
+                                        name="projectTypes"
+                                        value="Architecture & Interior"
+                                        onChange={handleChange}
+                                        className="h-4 w-4"/>
                                   <label>Architecture & Interior</label>
                                     </div>
                           </div>
@@ -376,7 +453,11 @@ Natural materials, soft shadows, and honest forms come together to create interi
                 
                       <div className="property-type flex gap-7 md:gap-16">
                         <label>Property Type:</label>
-                          <select className="block rounded-md px-2 text-black text-xs md:text-sm ">
+                          <select 
+                                  name="propertyType" 
+                                  value={formData.propertyType} 
+                                  onChange={handleChange}
+                                  className="block rounded-md px-2 text-black text-xs md:text-sm ">
                             <option value="">Select a property type</option>
                             <option value="house">Residential (House / Apartment / Villa)</option>
                             <option value="apartment">Commercial (Office / Retail / Hospitality)</option>
@@ -386,7 +467,11 @@ Natural materials, soft shadows, and honest forms come together to create interi
 
                       <div className="budget flex gap-20 md:gap-28">
                           <label>Budget:</label>
-                            <select className="block rounded-md px-2 text-black text-xs md:text-sm">
+                            <select 
+                                  name="budget"
+                                  value={formData.budget}
+                                  onChange={handleChange}
+                                  className="block rounded-md px-2 text-black text-xs md:text-sm">
                                 <option value="">Select your budget</option>
                                 <option value="lt-50000">&lt; 50,000$</option>
                                 <option value="50000-100000">50,000$ - 100,000$</option>
@@ -396,7 +481,11 @@ Natural materials, soft shadows, and honest forms come together to create interi
                       
                         <div className="timeline flex gap-20 md:gap-28">
                             <label>Timeline:</label>
-                              <select className="block rounded-md px-2 text-black text-xs md:text-sm">
+                              <select 
+                                    name="timeline"
+                                    value={formData.timeline}
+                                    onChange={handleChange}
+                                    className="block rounded-md px-2 text-black text-xs md:text-sm">
                                 <option value="">Select timeline</option>
                                 <option value="immediate">Immediate</option>
                                 <option value="1-3months">1-3 months</option>
