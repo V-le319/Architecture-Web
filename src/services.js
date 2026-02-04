@@ -196,7 +196,7 @@ const commercialSlider = useImageSlider(commercialImages);
                 }} 
           className="hero h-screen max-w-full flex flex-col items-center" > 
     
-      <header className="md:h-1/5 bg-black bg-opacity-60 w-full px-8 md:px-20"> <div className="w-full flex md:justify-center justify-between py-1 pt-4 md:pt-6"> 
+      <header className="md:h-1/5 bg-black bg-opacity-60 w-full md:pb-3 px-8 md:px-20"> <div className="w-full flex md:justify-center justify-between py-1 pt-4 md:pt-6"> 
         <Link to="/"><div className="flex items-end"> 
           <img src="/img/transparent-Photoroom.png" 
                 className="h-10 md:h-16" /> 
@@ -563,7 +563,9 @@ Natural materials, soft shadows, and honest forms come together to create interi
                         onClick={handleFooterSubmit}
                         className="w-4/12 h-8 md:h-11 text-white md:text-lg font-light bg-black border-2 border-white rounded-sm md:rounded-md hover:bg-text duration-300">Submit</button>
                 </div>
-
+              <p className="text-xs font-light text-white text-opacity-50 pt-4">© 2026 V.Le — Personal Project. 
+Not a real product or business.
+</p>
             </div>
       </footer>
               

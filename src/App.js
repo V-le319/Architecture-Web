@@ -231,7 +231,9 @@ We believe great design is collaborative. Through clear communication, transpare
                       className="w-8/12 h-8 md:h-11 text-xs md:text-sm bg-white bg-opacity-90 rounded-sm md:rounded-md px-2"></input>
                     <button className="w-4/12 h-8 md:h-11 text-white md:text-lg font-light bg-black border-2 border-white rounded-sm md:rounded-md hover:bg-text duration-300">Submit</button>
                 </div>
-
+              <p className="text-xs font-light text-white text-opacity-50 pt-4">© 2026 V.Le — Personal Project. 
+Not a real product or business.
+</p>
             </div>
       </footer>
 
