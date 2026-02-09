@@ -41,6 +41,7 @@ function App() {
             <img
                 src="/img/transparent-Photoroom.png"
                 className="h-10 md:h-16"
+                alt="logo"
             />
             <p className="text-white pl-2 md:pb-1 md:text-lg">LINEA Atelier</p>
           </div>
@@ -90,17 +91,20 @@ function App() {
                 <div className="md:w-full flex flex-col gap-4 justify-center items-center">
                   <p className="text-center text-xs">Human-centered</p>
                   <img src="/img/small-black-dot-png-2.png"
-                        className="h-5 opacity-80"/>
+                        className="h-5 opacity-80"
+                        alt=""/>
                 </div> 
                 <div className="md:w-full flex flex-col gap-4 justify-center items-center">
                   <p className="text-center text-xs">Sustainable materials</p>
                   <img src="/img/small-black-dot-png-2.png"
-                        className="h-5 opacity-80"/>
+                        className="h-5 opacity-80"
+                        alt=""/>
                 </div>
                 <div className="md:w-full flex flex-col gap-4 justify-center items-center">
                   <p className="text-center text-xs">Full project management</p>
                   <img src="/img/small-black-dot-png-2.png"
-                        className="h-5 opacity-80"/>
+                        className="h-5 opacity-80"
+                        alt=""/>
                 </div>
           </div>
           
@@ -108,12 +112,15 @@ function App() {
             <div className="relative h-32 w-52 md:h-52 md:w-80 md:ml-24 mb-10 -ml-28">
               <img src="/img/Minimalist Interior with Monochromatic Tones.png"
                    className="absolute shadow-lg rounded-lg top-10 left-0 w-full h-full object-cover transform transition-transform duration-300 hover:scale-125"
-                    />
+                   alt="interior" 
+                   />
               <img src="/img/Architectural Silhouette.png"
                    className="absolute shadow-lg rounded-lg top-0 left-14 w-full h-full object-cover transform transition-transform duration-300 hover:scale-125"
+                    alt="interior"
               />
               <img src="/img/Architectural Display Photo.png"
                    className="absolute shadow-lg rounded-lg top-20 left-28 w-full h-full object-cover transform transition-transform duration-300 hover:scale-125"
+                    alt="interior"
               />
             </div>
             <p className="text-xs md:text-base font-light w-96 mt-10 md:ml-10 md:pb-20 leading-normal md:leading-relaxed">We craft architecture and interiors that embrace simplicity and natural beauty. With careful attention to materials and proportions, our spaces age gracefully, reflecting quiet elegance and timeless character.
@@ -137,7 +144,8 @@ We believe great design is collaborative. Through clear communication, transpare
         <div className="w-full h-full grid grid-cols-2 md:justify-center gap-4 md:gap-8 text-text">
           <Link to="/services#personal"><div className="flex flex-col h-full items-center justify-center">
               <img src="/img/Minimalist Interior with Light and Shadow.png"
-                   className="h-full w-full mb-2 md:mb-4 rounded-lg shadow-md transform duration-300 hover:scale-105"/>
+                   className="h-full w-full mb-2 md:mb-4 rounded-lg shadow-md transform duration-300 hover:scale-105"
+                   alt=""/>
             <div className="">
               <h2 className="text-lg font-medium">Residential & Interiors</h2>
               <p className="text-xs md:text-sm font-light leading-normal">Spaces that carry life, and quiet elegance through material and light, leaving a lasting impression without saying a word.</p>
@@ -148,6 +156,7 @@ We believe great design is collaborative. Through clear communication, transpare
           <Link to="/services#commercial"><div className="flex flex-col h-full items-start justify-start">
               <img src="/img/Minimalist Interior with Geometric Light.png"
                   className="h-full w-full mb-2 md:mb-4 rounded-lg shadow-md transform duration-300 hover:scale-105"
+                  alt=""
                 />
             <div>
               <h2 className="text-lg font-medium">Commercial</h2>
