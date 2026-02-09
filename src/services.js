@@ -214,6 +214,7 @@ const commercialSlider = useImageSlider(commercialImages);
       <header className="md:h-1/5 bg-black bg-opacity-60 w-full md:pb-3 px-8 md:px-20"> <div className="w-full flex md:justify-center justify-between py-1 pt-4 md:pt-6"> 
         <Link to="/"><div className="flex items-end"> 
           <img src="/img/transparent-Photoroom.png" 
+                alt="logo"
                 className="h-10 md:h-16" /> 
           <p className="text-white pl-2 md:pb-1 md:text-lg">LINEA Atelier</p> 
         </div> 
@@ -250,6 +251,7 @@ const commercialSlider = useImageSlider(commercialImages);
               <div className="h-full">
               <div id="personal" className="personal md:h-screen p-10 md:px-20 py-16 md:flex-row gap-10 md:gap-20 flex flex-col">
                 <img src="/img/Minimalist Interior with Geometric Light.png"
+                      alt="interior"
                       className="w-1/2 h-72 md:h-full rounded-sm"/> 
                   <div className="md:w-1/2 flex flex-col justify-center items-start gap-4 md:gap-10">
                     <h1 className="text-3xl md:text-6xl text-text font-normal self-end md:self-auto">Personal Space</h1>
@@ -265,9 +267,11 @@ Natural materials, soft shadows, and honest forms come together to create interi
                   <button className="previous relative group w-10 h-10 justify-center"
                           onClick={personalSlider.prev}>
                     <img src="/img/back-black.png"
+                          alt="interior"
                           className="absolute w-6 h-6 inset-0 transition-opacity duration-300 group-hover:opacity-0"
                         />
                     <img src="/img/back=white.png"
+                          alt="interior"
                         className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
                           />
                         </button>
@@ -297,9 +301,11 @@ Natural materials, soft shadows, and honest forms come together to create interi
                   <button className="next relative group w-10 h-10 flex items-center justify-center"
                           onClick={personalSlider.next}>
                     <img src="/img/next black.png"
+                          alt="interior"
                           className="absolute w-6 h-6 inset-0 transition-opacity duration-300 group-hover:opacity-0"
                         />
                     <img src="/img/next-white.png"
+                          alt="interior"
                         className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
                           />
                         </button>
@@ -310,6 +316,7 @@ Natural materials, soft shadows, and honest forms come together to create interi
               <div className="h-full">
               <div id="commercial" className="commercial md:h-screen p-10 md:px-20 py-16 md:flex-row-reverse gap-10 md:gap-20 flex flex-col">
                 <img src="/img/Architectural Silhouette.png"
+                      alt="interior"
                       className="w-1/2 h-72 md:h-full rounded-sm self-end md:self-auto"/> 
                   <div className="md:w-1/2 flex flex-col justify-center items-start gap-4 md:gap-10">
                     <h1 className="text-3xl md:text-6xl text-text font-normal">Commercial Projects</h1>
@@ -322,9 +329,11 @@ Natural materials, soft shadows, and honest forms come together to create interi
                   <button className="previous relative group w-10 h-10 flex items-center justify-center"
                           onClick={commercialSlider.prev}>
                     <img src="/img/back-black.png"
+                          alt=""
                           className="absolute w-6 h-6 inset-0 transition-opacity duration-300 group-hover:opacity-0"
                         />
                     <img src="/img/back=white.png"
+                          alt=""
                         className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
                           />
                         </button>
@@ -341,6 +350,7 @@ Natural materials, soft shadows, and honest forms come together to create interi
                                   <img
                                       key={i}
                                       src={src}
+                                      alt=""
                                       className="w-28 md:w-48 flex-none object-cover rounded-sm cursor-pointer transform hover:scale-150 duration-300"
                                       onClick={() => setActiveImage(src)} // ✅ SAME modal
                                               />
@@ -354,9 +364,11 @@ Natural materials, soft shadows, and honest forms come together to create interi
                   <button className="previous relative group w-10 h-10 flex items-center justify-center"
                           onClick={commercialSlider.next}>
                     <img src="/img/next black.png"
+                          alt=""
                           className="absolute w-6 h-6 inset-0 transition-opacity duration-300 group-hover:opacity-0"
                         />
                     <img src="/img/next-white.png"
+                          alt=""
                         className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
                           />
                         </button>
