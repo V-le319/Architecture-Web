@@ -61,18 +61,18 @@ function App() {
             <div className="hidden md:flex items-center justify-center gap-10 md:gap-20 text-white text-xs md:text-sm font-light">
               <a href="#home" onClick={() => setMenuOpen(false)}>HOME</a>
               <a href="#about" onClick={() => setMenuOpen(false)}>ABOUT</a>
-              <Link to="/services"><a>SERVICES</a></Link>
-              <Link to="/services#contact"><a>CONTACT</a></Link>
+              <Link to="/services">SERVICES</Link>
+              <Link to="/services#contact">CONTACT</Link>
             </div>
-
+  
               {/* Menu open */}
             {menuOpen && (
               <div className="md:hidden w-screen flex flex-col items-center justify-center text-center py-4 gap-3 text-white font-light text-sm"
                   >
                 <a href="#home" onClick={() => setMenuOpen(false)} >HOME</a>
                 <a href="#about" onClick={() => setMenuOpen(false)}>ABOUT</a>
-                <Link to="/services#services"><a onClick={() => setMenuOpen(false)}>SERVICES</a></Link>
-                <Link to="/services#contact"><a onClick={() => setMenuOpen(false)}>CONTACT</a></Link>
+                <Link to="/services#services" onClick={() => setMenuOpen(false)}>SERVICES</Link>
+                <Link to="/services#contact"  onClick={() => setMenuOpen(false)}>CONTACT</Link>
               </div>
             )}
         </header>
@@ -92,19 +92,19 @@ function App() {
                   <p className="text-center text-xs">Human-centered</p>
                   <img src="/img/small-black-dot-png-2.png"
                         className="h-5 opacity-80"
-                        alt=""/>
+                        alt="interior"/>
                 </div> 
                 <div className="md:w-full flex flex-col gap-4 justify-center items-center">
                   <p className="text-center text-xs">Sustainable materials</p>
                   <img src="/img/small-black-dot-png-2.png"
                         className="h-5 opacity-80"
-                        alt=""/>
+                        alt="interior"/>
                 </div>
                 <div className="md:w-full flex flex-col gap-4 justify-center items-center">
                   <p className="text-center text-xs">Full project management</p>
                   <img src="/img/small-black-dot-png-2.png"
                         className="h-5 opacity-80"
-                        alt=""/>
+                        alt="interior"/>
                 </div>
           </div>
           
@@ -145,7 +145,7 @@ We believe great design is collaborative. Through clear communication, transpare
           <Link to="/services#personal"><div className="flex flex-col h-full items-center justify-center">
               <img src="/img/Minimalist Interior with Light and Shadow.png"
                    className="h-full w-full mb-2 md:mb-4 rounded-lg shadow-md transform duration-300 hover:scale-105"
-                   alt=""/>
+                   alt="interior"/>
             <div className="">
               <h2 className="text-lg font-medium">Residential & Interiors</h2>
               <p className="text-xs md:text-sm font-light leading-normal">Spaces that carry life, and quiet elegance through material and light, leaving a lasting impression without saying a word.</p>
@@ -156,7 +156,7 @@ We believe great design is collaborative. Through clear communication, transpare
           <Link to="/services#commercial"><div className="flex flex-col h-full items-start justify-start">
               <img src="/img/Minimalist Interior with Geometric Light.png"
                   className="h-full w-full mb-2 md:mb-4 rounded-lg shadow-md transform duration-300 hover:scale-105"
-                  alt=""
+                  alt="interior"
                 />
             <div>
               <h2 className="text-lg font-medium">Commercial</h2>

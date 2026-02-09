@@ -329,11 +329,11 @@ Natural materials, soft shadows, and honest forms come together to create interi
                   <button className="previous relative group w-10 h-10 flex items-center justify-center"
                           onClick={commercialSlider.prev}>
                     <img src="/img/back-black.png"
-                          alt=""
+                          alt="interior"
                           className="absolute w-6 h-6 inset-0 transition-opacity duration-300 group-hover:opacity-0"
                         />
                     <img src="/img/back=white.png"
-                          alt=""
+                          alt="interior"
                         className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
                           />
                         </button>
@@ -350,7 +350,7 @@ Natural materials, soft shadows, and honest forms come together to create interi
                                   <img
                                       key={i}
                                       src={src}
-                                      alt=""
+                                      alt="interior"
                                       className="w-28 md:w-48 flex-none object-cover rounded-sm cursor-pointer transform hover:scale-150 duration-300"
                                       onClick={() => setActiveImage(src)} // ✅ SAME modal
                                               />
@@ -364,11 +364,11 @@ Natural materials, soft shadows, and honest forms come together to create interi
                   <button className="previous relative group w-10 h-10 flex items-center justify-center"
                           onClick={commercialSlider.next}>
                     <img src="/img/next black.png"
-                          alt=""
+                          alt="interior"
                           className="absolute w-6 h-6 inset-0 transition-opacity duration-300 group-hover:opacity-0"
                         />
                     <img src="/img/next-white.png"
-                          alt=""
+                          alt="interior"
                         className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
                           />
                         </button>
@@ -398,7 +398,7 @@ Natural materials, soft shadows, and honest forms come together to create interi
       {/* Image */}
       <img
         src={activeImage}
-        alt=""
+        alt="interior"
         className="object-contain max-w-full max-h-[calc(100vh-2rem)] md:max-w-[70vw] md:max-h-[calc(100vh-4rem)] rounded-md shadow-lg"
       />
     </div>
