@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Architecture-Web/static/css/main.92c1e4bb.css",
+    "main.js": "/Architecture-Web/static/js/main.9d9e36f5.js",
+    "static/js/453.4a574b31.chunk.js": "/Architecture-Web/static/js/453.4a574b31.chunk.js",
+    "index.html": "/Architecture-Web/index.html",
+    "main.92c1e4bb.css.map": "/Architecture-Web/static/css/main.92c1e4bb.css.map",
+    "main.9d9e36f5.js.map": "/Architecture-Web/static/js/main.9d9e36f5.js.map",
+    "453.4a574b31.chunk.js.map": "/Architecture-Web/static/js/453.4a574b31.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.92c1e4bb.css",
+    "static/js/main.9d9e36f5.js"
+  ]
+}
