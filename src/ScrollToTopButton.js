@@ -52,7 +52,7 @@ export default function ScrollToTopButton() {
             active:shadow-inner
           "
         >
-          <img src="/img/up-btn.png" alt="Scroll to top" className="w-6 md:w-10 h-6 md:h-10" />
+          <img src={process.env.PUBLIC_URL + "/img/up-btn.png"} alt="Scroll to top" className="w-6 md:w-10 h-6 md:h-10" />
         </button>
       )}
     </>

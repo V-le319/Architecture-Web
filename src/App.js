@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 import Services from "./services";
 import { useLocation } from "react-router-dom";
 import ScrollToTopButton from "./ScrollToTopButton";
@@ -24,12 +24,12 @@ function App() {
   }, [location]);
 
   return (
-    <BrowserRouter>
+    
     <Switch>
       <Route exact path="/">
     <div id="home">
       <div style= {{
-              backgroundImage: "url('/img/Modern Architecture in Black and White.png')",
+              backgroundImage: `url(${process.env.PUBLIC_URL}/img/Modern%20Architecture%20in%20Black%20and%20White.png)`,
               backgroundSize: "cover",
               backgroundPosition: "center",
       }}
@@ -39,7 +39,7 @@ function App() {
           <div className="w-full flex md:justify-center justify-between py-1 pt-4 md:pt-6">
             <div className="flex items-end">
             <img
-                src="/img/transparent-Photoroom.png"
+                src={process.env.PUBLIC_URL + "/img/transparent-Photoroom.png"}
                 className="h-10 md:h-16"
                 alt="logo"
             />
@@ -90,19 +90,19 @@ function App() {
           <div className="w-80 md:w-1/2 flex flex-row gap-4 justify-center items-center pb-4">
                 <div className="md:w-full flex flex-col gap-4 justify-center items-center">
                   <p className="text-center text-xs">Human-centered</p>
-                  <img src="/img/small-black-dot-png-2.png"
+                  <img src={process.env.PUBLIC_URL + "/img/small-black-dot-png-2.png"}
                         className="h-5 opacity-80"
                         alt="interior"/>
                 </div> 
                 <div className="md:w-full flex flex-col gap-4 justify-center items-center">
                   <p className="text-center text-xs">Sustainable materials</p>
-                  <img src="/img/small-black-dot-png-2.png"
+                  <img src={process.env.PUBLIC_URL + "/img/small-black-dot-png-2.png"}
                         className="h-5 opacity-80"
                         alt="interior"/>
                 </div>
                 <div className="md:w-full flex flex-col gap-4 justify-center items-center">
                   <p className="text-center text-xs">Full project management</p>
-                  <img src="/img/small-black-dot-png-2.png"
+                  <img src={process.env.PUBLIC_URL + "/img/small-black-dot-png-2.png"}
                         className="h-5 opacity-80"
                         alt="interior"/>
                 </div>
@@ -110,15 +110,15 @@ function App() {
           
           <div className="w-3/4 flex flex-col gap-10 justify-center items-center md:grid md:grid-cols-2 md:gap-20 p-10">
             <div className="relative h-32 w-52 md:h-52 md:w-80 md:ml-24 mb-10 -ml-28">
-              <img src="/img/Minimalist Interior with Monochromatic Tones.png"
+              <img src={process.env.PUBLIC_URL + "/img/Minimalist Interior with Monochromatic Tones.png"}
                    className="absolute shadow-lg rounded-lg top-10 left-0 w-full h-full object-cover transform transition-transform duration-300 hover:scale-125"
                    alt="interior" 
                    />
-              <img src="/img/Architectural Silhouette.png"
+              <img src={process.env.PUBLIC_URL + "/img/Architectural Silhouette.png"}
                    className="absolute shadow-lg rounded-lg top-0 left-14 w-full h-full object-cover transform transition-transform duration-300 hover:scale-125"
                     alt="interior"
               />
-              <img src="/img/Architectural Display Photo.png"
+              <img src={process.env.PUBLIC_URL + "/img/Architectural Display Photo.png"}
                    className="absolute shadow-lg rounded-lg top-20 left-28 w-full h-full object-cover transform transition-transform duration-300 hover:scale-125"
                     alt="interior"
               />
@@ -143,7 +143,7 @@ We believe great design is collaborative. Through clear communication, transpare
 
         <div className="w-full h-full grid grid-cols-2 md:justify-center gap-4 md:gap-8 text-text">
           <Link to="/services#personal"><div className="flex flex-col h-full items-center justify-center">
-              <img src="/img/Minimalist Interior with Light and Shadow.png"
+              <img src={process.env.PUBLIC_URL + "/img/Minimalist Interior with Light and Shadow.png"}
                    className="h-full w-full mb-2 md:mb-4 rounded-lg shadow-md transform duration-300 hover:scale-105"
                    alt="interior"/>
             <div className="">
@@ -154,7 +154,7 @@ We believe great design is collaborative. Through clear communication, transpare
           </Link>
 
           <Link to="/services#commercial"><div className="flex flex-col h-full items-start justify-start">
-              <img src="/img/Minimalist Interior with Geometric Light.png"
+              <img src={process.env.PUBLIC_URL + "/img/Minimalist Interior with Geometric Light.png"}
                   className="h-full w-full mb-2 md:mb-4 rounded-lg shadow-md transform duration-300 hover:scale-105"
                   alt="interior"
                 />
@@ -196,7 +196,7 @@ We believe great design is collaborative. Through clear communication, transpare
       <footer className="h-full w-full md:h-80 bg-black bg-opacity-95 flex flex-col justify-center items-start p-10 md:pl-40 md:flex-row md:justify-between md:items-center md:gap-14 md:p-20">
         <div className="flex flex-col gap-1">
             <div className="flex flex-row justify-start items-center gap-1">
-              <img src="/img/transparent-Photoroom.png"
+              <img src={process.env.PUBLIC_URL + "/img/transparent-Photoroom.png"}
                     alt="logo"
                     className="h-10 md:h-14"
                   />
@@ -255,7 +255,7 @@ Not a real product or business.
     </Route>
 
       </Switch>
-    </BrowserRouter>
+    
   );
 }
 
