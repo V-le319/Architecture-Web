@@ -410,7 +410,7 @@ Natural materials, soft shadows, and honest forms come together to create interi
            
                 <form id="contact" 
                       onSubmit={handleSubmit}
-                      className="request-form px-10 py-10 h-screen justify-center items-center gap-6 flex flex-col bg-text bg-opacity-90 text-white">
+                      className="request-form px-10 py-20 h-screen justify-center items-center gap-6 flex flex-col bg-text bg-opacity-90 text-white">
                     <h1 className="self-center text-3xl md:text-6xl md:mb-10">Request Form</h1>
                   
                  <div className="form flex flex-col py-8 md:py-10 justify-center items-start md:gap-10 gap-6"> 
@@ -534,7 +534,7 @@ Natural materials, soft shadows, and honest forms come together to create interi
 
                         <button 
                             type="submit"
-                            className="h-12  md:h-14 md:text-2xl bg-text hover:bg-white hover:shadow-md duration-300 hover:text-text border-2 text-center md:px-20 border-white px-8 rounded-xl text-xl">
+                            className="h-12 self-center md:h-14 md:text-2xl bg-text hover:bg-white hover:shadow-md duration-300 hover:text-text border-2 text-center md:px-20 border-white px-8 rounded-xl text-xl">
                           Submit
                         </button>
                 
