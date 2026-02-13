@@ -48,7 +48,7 @@ function App() {
 
            {/* Hamburger (mobile only) */}
     <button
-      className="md:hidden text-white text-2xl"
+      className="md:hidden h-10 w-10 flex items-center justify-center text-white text-3xl"
       onClick={() => setMenuOpen(!menuOpen)}
     >
       ☰
@@ -67,7 +67,7 @@ function App() {
   
               {/* Menu open */}
             {menuOpen && (
-              <div className="md:hidden w-screen flex flex-col items-center justify-center text-center py-4 gap-3 text-white font-light text-sm"
+              <div className="md:hidden w-full flex flex-col items-center justify-center text-center py-4 gap-3 text-white font-light text-sm"
                   >
                 <a href="#home" onClick={() => setMenuOpen(false)} >HOME</a>
                 <a href="#about" onClick={() => setMenuOpen(false)}>ABOUT</a>
@@ -123,17 +123,17 @@ function App() {
                     alt="interior"
               />
             </div>
-            <p className="text-xs md:text-base font-light w-96 mt-10 md:ml-10 md:pb-20 leading-normal md:leading-relaxed">We craft architecture and interiors that embrace simplicity and natural beauty. With careful attention to materials and proportions, our spaces age gracefully, reflecting quiet elegance and timeless character.
+            <p className="text-sm md:text-base font-light w-96 mt-10 md:ml-10 md:pb-20 leading-relaxed">We craft architecture and interiors that embrace simplicity and natural beauty. With careful attention to materials and proportions, our spaces age gracefully, reflecting quiet elegance and timeless character.
 We believe great design is collaborative. Through clear communication, transparent timelines, and careful budgeting, we make the process smooth and enjoyable — delivering spaces that exceed expectations without surprises.</p>
           </div>
       </div>
 
-      <div className="content h-screen px-4 md:py-20 md:px-20 pb-10 bg-text bg-opacity-5 text-text flex flex-col justify-center items-center md:grid grid-cols-2 md:gap-8">
+      <div className="content min-h-screen px-4 md:py-20 md:px-20 pb-10 gap-14 bg-text bg-opacity-5 text-text flex flex-col justify-center items-center md:grid grid-cols-2 md:gap-8">
         
-        <div className="h-full flex flex-col justify-center md:justify-start items-start gap-6 md:gap-8 md:pt-10">
+        <div className="h-full flex flex-col justify-center md:justify-start items-start gap-4 md:gap-8 md:pt-10">
           <h1 className="text-3xl md:text-5xl font-normal">From Concept to Concrete</h1>
             <div className="text-text flex flex-col gap-2">
-              <p className="text-xs md:text-base font-light leading-normal md:leading-relaxed">Merging creativity with functionality, shaping homes and interiors that reflect personality, craft, and a forward-looking approach to design.
+              <p className="text-sm md:text-base font-light leading-relaxed">Merging creativity with functionality, shaping homes and interiors that reflect personality, craft, and a forward-looking approach to design.
                 <br></br>
                  Every project is a journey — from the first sketch to the finished space. We bring clarity, creativity, and precision to deliver architecture and interiors that stand out.
                 </p>
@@ -142,7 +142,7 @@ We believe great design is collaborative. Through clear communication, transpare
           </div>
 
         <div className="w-full h-full grid grid-cols-2 md:justify-center gap-4 md:gap-8 text-text">
-          <Link to="/services#personal"><div className="flex flex-col h-full items-center justify-center">
+          <Link to="/services#personal"><div className="flex flex-col h-full gap-2 items-center justify-center">
               <img src={process.env.PUBLIC_URL + "/img/Minimalist-Interior-with-Light-and-Shadow.png"}
                    className="h-full w-full mb-2 md:mb-4 rounded-lg shadow-md transform duration-300 hover:scale-105"
                    alt="interior"/>
@@ -153,7 +153,7 @@ We believe great design is collaborative. Through clear communication, transpare
           </div>
           </Link>
 
-          <Link to="/services#commercial"><div className="flex flex-col h-full items-start justify-start">
+          <Link to="/services#commercial"><div className="flex flex-col gap-2 h-full items-start justify-start">
               <img src={process.env.PUBLIC_URL + "/img/Minimalist Interior with Geometric Light.png"}
                   className="h-full w-full mb-2 md:mb-4 rounded-lg shadow-md transform duration-300 hover:scale-105"
                   alt="interior"

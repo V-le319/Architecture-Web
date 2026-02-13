@@ -211,7 +211,7 @@ const commercialSlider = useImageSlider(commercialImages);
                 }} 
           className="hero h-screen max-w-full flex flex-col items-center" > 
     
-      <header className="md:h-1/5 bg-black bg-opacity-60 w-full md:pb-3 px-8 md:px-20"> <div className="w-full flex md:justify-center justify-between py-1 pt-4 md:pt-6"> 
+      <header className="md:h-1/5 bg-black bg-opacity-70 w-full md:pb-3 px-8 md:px-20"> <div className="w-full flex md:justify-center justify-between py-1 pt-4 md:pt-6"> 
         <Link to="/"><div className="flex items-end"> 
           <img src={process.env.PUBLIC_URL + "/img/transparent-Photoroom.png"}
                 alt="logo"
@@ -220,7 +220,7 @@ const commercialSlider = useImageSlider(commercialImages);
         </div> 
         </Link>
           <button 
-              className="md:hidden text-white text-2xl" 
+              className="md:hidden h-10 w-10 flex items-center justify-center text-white text-3xl" 
               onClick={() => setMenuOpen(!menuOpen)} > ☰ 
           </button> 
         </div> 
@@ -233,7 +233,7 @@ const commercialSlider = useImageSlider(commercialImages);
           <Link to="/services" className=" hover:text-black duration-300">SERVICES</Link> 
           <Link to="/services#contact" className=" hover:text-black duration-300">CONTACT</Link> </nav> 
           
-          {menuOpen && ( <div className="md:hidden w-screen flex flex-col items-center gap-3 text-white font-light text-sm"> 
+          {menuOpen && ( <div className="md:hidden w-full flex flex-col items-center justify-center text-center py-4 gap-3 text-white font-light text-sm"> 
             <Link to="/" onClick={() => setMenuOpen(false)}>HOME</Link> 
             <Link to="/#about" onClick={() => setMenuOpen(false)}>ABOUT</Link> 
             <Link to="#services" onClick={() => setMenuOpen(false)}>SERVICES</Link> 
@@ -247,15 +247,15 @@ const commercialSlider = useImageSlider(commercialImages);
 
             </div> 
             
-            <div id="services" className="services-content min-h-screen max-w-screen flex flex-col md:py-10 my-10 "> 
+            <div id="services" className="services-content min-h-screen max-w-screen flex flex-col gap-10 md:py-10  "> 
               <div className="h-full">
-              <div id="personal" className="personal md:h-screen p-10 md:px-20 py-16 md:flex-row gap-10 md:gap-20 flex flex-col">
+              <div id="personal" className="personal md:h-full p-10 md:px-20 py-16 md:flex-row gap-10 md:gap-20 flex flex-col">
                 <img src={process.env.PUBLIC_URL + "/img/Minimalist Interior with Geometric Light.png"}
                       alt="interior"
                       className="w-1/2 h-72 md:h-full rounded-sm"/> 
                   <div className="md:w-1/2 flex flex-col justify-center items-start gap-4 md:gap-10">
                     <h1 className="text-3xl md:text-6xl text-text font-normal self-end md:self-auto">Personal Space</h1>
-                    <p className="text-text font-light text-xs md:text-lg leading-normal md:leading-relaxed">A quiet collection shaped by light, texture, and restraint.<br></br>
+                    <p className="text-text font-light text-sm md:text-lg leading-relaxed">A quiet collection shaped by light, texture, and restraint.<br></br>
 These interiors embrace imperfection and natural materials, creating spaces that feel calm, lived-in, and deeply personal — where simplicity becomes comfort.<br></br>
 Natural materials, soft shadows, and honest forms come together to create interiors that feel grounded and timeless.</p>
                   </div>
@@ -278,7 +278,7 @@ Natural materials, soft shadows, and honest forms come together to create interi
                         </div>
                     
                        <div className="flex-1 h-full py-2 w-full flex justify-center items-center">
-                        <div className=" flex h-full w-full justify-center gap-4 md:gap-16 overflow">
+                        <div className=" flex h-full w-full justify-center gap-4 md:gap-16 overflow-hidden md:overflow-visible">
                             {personalImages
                               .slice(
                               personalSlider.index,
@@ -315,18 +315,18 @@ Natural materials, soft shadows, and honest forms come together to create interi
                 </div>
 
               <div className="h-full">
-              <div id="commercial" className="commercial md:h-screen p-10 md:px-20 py-16 md:flex-row-reverse gap-10 md:gap-20 flex flex-col">
+              <div id="commercial" className="commercial md:h-full p-10 md:px-20 py-16 md:flex-row-reverse gap-10 md:gap-20 flex flex-col">
                 <img src={process.env.PUBLIC_URL + "/img/Architectural Silhouette.png"}
                       alt="interior"
                       className="w-1/2 h-72 md:h-full rounded-sm self-end md:self-auto"/> 
                   <div className="md:w-1/2 flex flex-col justify-center items-start gap-4 md:gap-10">
                     <h1 className="text-3xl md:text-6xl text-text font-normal">Commercial Projects</h1>
-                    <p className="text-text font-light text-xs md:text-lg leading-normal md:leading-relaxed">Thoughtfully designed workplaces, retail, and mixed-use spaces that balance performance and aesthetics. Each project responds to functional needs while expressing a clear architectural identity. Our designs are created to deliver long-term value and adaptability.</p>
+                    <p className="text-text font-light text-sm md:text-lg leading-relaxed">Thoughtfully designed workplaces, retail, and mixed-use spaces that balance performance and aesthetics. Each project responds to functional needs while expressing a clear architectural identity. Our designs are created to deliver long-term value and adaptability.</p>
                   </div>
                 </div>
                 <div className="roll-collection h-32 py-2 md:py-4 md:h-48 w-full md:my-8 bg-text bg-opacity-20 flex flex-row gap-4 justify-center items-center">
                   
-                  <div className="w-full h-full pl-4 flex items-center justify-center">
+                  <div className="w-12 flex-none pl-4 flex items-center justify-center">
                   <button className="previous relative group w-10 h-10 flex items-center justify-center"
                           onClick={commercialSlider.prev}>
                     <img src={process.env.PUBLIC_URL + "/img/back-black.png"}
@@ -341,7 +341,7 @@ Natural materials, soft shadows, and honest forms come together to create interi
                         </div>
                     
                        <div className="flex-1 flex h-full w-full py-2 justify-center items-center">
-                        <div className=" flex h-full justify-center gap-4 md:gap-16 overflow">
+                        <div className=" flex h-full justify-center gap-4 md:gap-16 overflow-hidden md:overflow-visible">
                             {commercialImages
                                 .slice(
                                 commercialSlider.index,
@@ -361,7 +361,7 @@ Natural materials, soft shadows, and honest forms come together to create interi
                         
 
                     
-                    <div className="w-full h-full flex items-center justify-center">
+                    <div className="w-12 flex-none flex items-center justify-center">
                   <button className="previous relative group w-10 h-10 flex items-center justify-center"
                           onClick={commercialSlider.next}>
                     <img src={process.env.PUBLIC_URL + "/img/next black.png"}
@@ -410,82 +410,74 @@ Natural materials, soft shadows, and honest forms come together to create interi
            
                 <form id="contact" 
                       onSubmit={handleSubmit}
-                      className="request-form px-10 py-20 h-screen justify-center items-center gap-6 flex flex-col bg-text bg-opacity-90 text-white">
-                    <h1 className="self-center text-3xl md:text-6xl md:mb-10">Request Form</h1>
+                      className="request-form min-h-screen px-10 md:px-20 py-10 mt-10 md:py-24 bg-text bg-opacity-90 text-white flex flex-col items-center">
+                    <h1 className="self-center text-4xl md:text-6xl mb-6 md:mb-12">Request Form</h1>
                   
-                 <div className="form flex flex-col py-8 md:py-10 justify-center items-start md:gap-10 gap-6"> 
-                  <div className="personal-infos flex flex-col justify-center items-start md:flex-row md:gap-10 gap-6">
-                    <div className="flex gap-4">
-                      <label>Name:</label>
-                      <input 
-                          name="name"
-                          value={formData.name}
-                          onChange={handleChange}
-                          className="rounded-md w-60 text-xs px-2 text-black" 
-                          placeholder="Your Name" 
-                          type="text"/>
-                        </div>
-                      <div className="flex gap-4">
-                        <label>Phone:</label>
-                        <input 
-                            name="phone"
-                            value={formData.phone}
-                            onChange={handleChange}
-                            className="rounded-md w-60 text-xs px-2  text-black" 
-                            placeholder="Phone Number" 
-                            type="number"/>
-                          </div>
-                        <div className="flex gap-4">
-                          <label>Email:</label>
-                          <input 
-                              name="email"
-                              value={formData.email}
+                 <div className="w-full max-w-4xl flex flex-col gap-10"> 
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <div className="flex flex-col gap-2">
+                        <label className="text-base font-semibold">Name:</label>
+                            <input
+                              name="name"
+                               value={formData.name}
                               onChange={handleChange}
-                              className="rounded-md w-60 text-xs px-2  text-black" 
-                              placeholder="Your Email" 
-                              type="email"/>
-                            </div>
-                    </div>
+                              className="w-full rounded-md px-3 py-2 text-black text-sm"
+                              placeholder="Your Name"
+                              type="text"
+                        />
+                         </div>
 
-                    <div className="project-check flex gap-10 md:gap-20">
-                      <p>Project Type:</p>
-                        <div className="flex flex-col justify-items-start md:flex-row gap-4">
-                          <div className="flex gap-2 items-center">
-                            <input type="checkbox" 
-                                    name="projectTypes"
-                                    value="Architecture"
-                                    onChange={handleChange}
-                                    className="h-4 w-4"/>
-                            <label>Architecture</label>
-                              </div>
-                            <div className="flex gap-2 items-center">
-                                <input 
-                                      type="checkbox"
-                                      name="projectTypes"
-                                      value="Interior"
-                                      onChange={handleChange} 
-                                      className="h-4 w-4"/>
-                                <label>Interior</label>
-                                  </div>
-                              <div className="flex gap-2 items-center">
-                                  <input 
-                                        type="checkbox"
-                                        name="projectTypes"
-                                        value="Architecture & Interior"
-                                        onChange={handleChange}
-                                        className="h-4 w-4"/>
-                                  <label>Architecture & Interior</label>
-                                    </div>
+                    <div className="flex flex-col gap-2">
+                    <label className="text-base font-semibold">Phone:</label>
+                      <input
+                            name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          className="w-full rounded-md px-3 py-2 text-black text-sm"
+                          placeholder="Phone Number"
+                          type="number"
+                      />
                           </div>
-                      </div>
+
+                      <div className="flex flex-col gap-2">
+                        <label className="text-base font-semibold">Email:</label>
+                        <input
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="w-full rounded-md px-3 py-2 text-black text-sm"
+                            placeholder="Your Email"
+                            type="email"
+                            />
+                            </div>
+                        </div>
+
+                    <div className="flex flex-col gap-3">
+                        <p className="text-base font-semibold">Project Type:</p>
+                        <div className="flex flex-col text-sm md:flex-row gap-4 md:gap-8">
+                          <label className="flex items-center gap-2">
+                            <input type="checkbox" name="projectTypes" value="Architecture" onChange={handleChange} />
+                              Architecture
+                                </label>
+                          <label className="flex items-center gap-2">
+                            <input type="checkbox" name="projectTypes" value="Interior" onChange={handleChange} />
+                              Interior
+                          </label>
+                            <label className="flex items-center gap-2">
+                            <input type="checkbox" name="projectTypes" value="Architecture & Interior" onChange={handleChange} />
+                              Architecture & Interior
+                            </label>
+                            </div>
+                            </div>
+
                 
-                      <div className="property-type flex gap-7 md:gap-16">
-                        <label>Property Type:</label>
+                      <div className="property-type flex flex-col gap-2">
+                        <label className="text-base font-semibold">Property Type:</label>
                           <select 
-                                  name="propertyType" 
-                                  value={formData.propertyType} 
+                                  name="propertyType"
+                                  value={formData.propertyType}
                                   onChange={handleChange}
-                                  className="block rounded-md px-2 text-black text-xs md:text-sm ">
+                                  className="w-full rounded-md px-3 py-2 text-black text-sm">
                             <option value="">Select a property type</option>
                             <option value="house">Residential (House / Apartment / Villa)</option>
                             <option value="apartment">Commercial (Office / Retail / Hospitality)</option>
@@ -493,13 +485,13 @@ Natural materials, soft shadows, and honest forms come together to create interi
                           </select>
                             </div>
 
-                      <div className="budget flex gap-20 md:gap-28">
-                          <label>Budget:</label>
+                      <div className="budget flex flex-col gap-2">
+                          <label className="text-base font-semibold">Budget:</label>
                             <select 
                                   name="budget"
                                   value={formData.budget}
                                   onChange={handleChange}
-                                  className="block rounded-md px-2 text-black text-xs md:text-sm">
+                                  className="block w-full rounded-md px-3 py-2 text-black text-sm">
                                 <option value="">Select your budget</option>
                                 <option value="lt-50000">&lt; 50,000$</option>
                                 <option value="50000-100000">50,000$ - 100,000$</option>
@@ -507,13 +499,13 @@ Natural materials, soft shadows, and honest forms come together to create interi
                             </select>
                               </div>
                       
-                        <div className="timeline flex gap-20 md:gap-28">
-                            <label>Timeline:</label>
+                        <div className="timeline flex flex-col gap-2">
+                            <label className="text-base font-semibold">Timeline:</label>
                               <select 
                                     name="timeline"
                                     value={formData.timeline}
                                     onChange={handleChange}
-                                    className="block rounded-md px-2 text-black text-xs md:text-sm">
+                                    className="block w-full rounded-md px-3 py-2 text-black text-sm">
                                 <option value="">Select timeline</option>
                                 <option value="immediate">Immediate</option>
                                 <option value="1-3months">1-3 months</option>
@@ -521,22 +513,25 @@ Natural materials, soft shadows, and honest forms come together to create interi
                               </select>
                                 </div>
 
-                         <div className="timeline  flex gap-4 md:gap-24">
-                            <label>Message:</label>
-                              <textarea 
-                                    name="message"
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                    className="rounded-md w-72 h-auto  md:w-96 p-2 text-xs md:text-sm  text-black" 
-                                    placeholder="Your message here..."/>
-                          </div>      
-                </div>
+                         <div className="flex flex-col gap-2">
+                            <label className="text-base font-semibold">Message:</label>
+                              <textarea
+                                  name="message"
+                                  value={formData.message}
+                                  onChange={handleChange}
+                                  className="w-full rounded-md px-3 py-3 text-black text-sm min-h-[120px]"
+                                  placeholder="Your message here..."
+                                      />
+                            </div>
+ 
+                          </div>
 
-                        <button 
+                        <button
                             type="submit"
-                            className="h-12 self-center md:h-14 md:text-2xl bg-text hover:bg-white hover:shadow-md duration-300 hover:text-text border-2 text-center md:px-20 border-white px-8 rounded-xl text-xl">
-                          Submit
-                        </button>
+                            className="mt-10 md:mt-14 w-full md:w-1/5 px-10 py-3 text-lg md:text-xl bg-black bg-opacity-70 hover:bg-text hover:text-white transition duration-300 border border-white rounded-md"
+                          >
+                            Submit
+                          </button>
                 
                 </form>
 
@@ -589,7 +584,7 @@ Natural materials, soft shadows, and honest forms come together to create interi
                       className="w-8/12 h-8 md:h-11 text-xs md:text-sm bg-white bg-opacity-90 rounded-sm md:rounded-md px-2"></input>
                     <button 
                         onClick={handleFooterSubmit}
-                        className="w-4/12 h-8 md:h-11 text-white md:text-lg font-light bg-black border-2 border-white rounded-sm md:rounded-md hover:bg-text duration-300">Submit</button>
+                        className="w-4/12 h-8 md:h-11 text-white md:text-lg font-light bg-black  border-2 border-white rounded-sm md:rounded-md hover:bg-text duration-300">Submit</button>
                 </div>
               <p className="text-xs font-light text-white text-opacity-50 pt-4">© 2026 V.Le — Personal Project. 
 Not a real product or business.
