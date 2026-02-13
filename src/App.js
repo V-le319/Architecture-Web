@@ -48,7 +48,7 @@ function App() {
 
            {/* Hamburger (mobile only) */}
     <button
-      className="md:hidden h-10 w-10 flex items-center justify-center text-white text-3xl"
+      className="md:hidden h-12 w-12 flex items-center justify-center text-white text-3xl"
       onClick={() => setMenuOpen(!menuOpen)}
     >
       ☰
@@ -131,7 +131,7 @@ We believe great design is collaborative. Through clear communication, transpare
       <div className="content min-h-screen px-4 md:py-20 md:px-20 pb-10 gap-14 bg-text bg-opacity-5 text-text flex flex-col justify-center items-center md:grid grid-cols-2 md:gap-8">
         
         <div className="h-full flex flex-col justify-center md:justify-start items-start gap-4 md:gap-8 md:pt-10">
-          <h1 className="text-3xl md:text-5xl font-normal">From Concept to Concrete</h1>
+          <h1 className="text-3xl md:text-5xl font-normal mb-1">From Concept to Concrete</h1>
             <div className="text-text flex flex-col gap-2">
               <p className="text-sm md:text-base font-light leading-relaxed">Merging creativity with functionality, shaping homes and interiors that reflect personality, craft, and a forward-looking approach to design.
                 <br></br>

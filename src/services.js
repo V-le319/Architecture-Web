@@ -254,7 +254,7 @@ const commercialSlider = useImageSlider(commercialImages);
                       alt="interior"
                       className="w-1/2 h-72 md:h-full rounded-sm"/> 
                   <div className="md:w-1/2 flex flex-col justify-center items-start gap-4 md:gap-10">
-                    <h1 className="text-3xl md:text-6xl text-text font-normal self-end md:self-auto">Personal Space</h1>
+                    <h1 className="text-3xl md:text-6xl text-text font-normal self-start">Personal Space</h1>
                     <p className="text-text font-light text-sm md:text-lg leading-relaxed">A quiet collection shaped by light, texture, and restraint.<br></br>
 These interiors embrace imperfection and natural materials, creating spaces that feel calm, lived-in, and deeply personal — where simplicity becomes comfort.<br></br>
 Natural materials, soft shadows, and honest forms come together to create interiors that feel grounded and timeless.</p>
@@ -453,7 +453,7 @@ Natural materials, soft shadows, and honest forms come together to create interi
                         </div>
 
                     <div className="flex flex-col gap-3">
-                        <p className="text-base font-semibold">Project Type:</p>
+                        <label className="text-base font-semibold">Project Type:</label>
                         <div className="flex flex-col text-sm md:flex-row gap-4 md:gap-8">
                           <label className="flex items-center gap-2">
                             <input type="checkbox" name="projectTypes" value="Architecture" onChange={handleChange} />
